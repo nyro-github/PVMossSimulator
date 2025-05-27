@@ -69,10 +69,10 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItemReset = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
+        setTitle("PV Window & Moss Energy Output Simulator");
         setResizable(false);
 
-        jPanelPV.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelPV.setBackground(new java.awt.Color(255, 153, 0));
 
         jLabelPVPreset.setText("Preset:");
 
@@ -82,7 +82,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabelPVTemp.setText("Temperature:");
 
-        jComboBoxPVPreset.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPVPreset.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0. Custom", "1. Sunny Summer Noon", "2. Winter Morning", "3. Partially Cloudy Autumn Afternoon", "4. Cold Sunny Day with Low Sun Angle", "5. Hot Day, High Angle, Some Clouds", "6. Stormy Day with Low Light", "7. Spring Morning with Clear Skies", "8. Cloudy Late Afternoon in Early Winter", "9. Heatwave Noon with Clear Skies", "10. Early Autumn Foggy Morning" }));
+        jComboBoxPVPreset.setSelectedIndex(1);
         jComboBoxPVPreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPVPresetActionPerformed(evt);
@@ -178,7 +179,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelMoss.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelMoss.setBackground(new java.awt.Color(0, 153, 0));
 
         jLabelMossMoist.setText("Moisture:");
 
@@ -245,7 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelRunOutput.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelRunOutput.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabelRunOutput.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabelRunOutput.setText("Output & Universal Settings");
@@ -362,6 +363,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuReset.setText("Reset");
 
         jMenuItemReset.setText("Reset to default");
+        jMenuItemReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemResetActionPerformed(evt);
+            }
+        });
         jMenuReset.add(jMenuItemReset);
 
         jMenuBar1.add(jMenuReset);
@@ -399,15 +405,22 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxPVPresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPVPresetActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxPVPresetActionPerformed
 
     private void jCheckBoxMossPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMossPanelActionPerformed
-        // TODO add your handling code here:
+        if(!jCheckBoxMossPanel.isSelected()) {
+            setMossPanel(false);
+        } else {
+            setMossPanel(true);
+        }
     }//GEN-LAST:event_jCheckBoxMossPanelActionPerformed
 
     private void jCheckBoxPVPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPVPanelActionPerformed
-        // TODO add your handling code here:
+        if(!jCheckBoxPVPanel.isSelected()) {
+            setPVPanel(false);
+        } else {
+            setPVPanel(true);
+        }
     }//GEN-LAST:event_jCheckBoxPVPanelActionPerformed
 
     private void jTextFieldSunLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSunLevelActionPerformed
@@ -422,6 +435,26 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRunActionPerformed
 
+    private void jMenuItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemResetActionPerformed
+        jCheckBoxPVPanel.setSelected(true);
+        setPVPanel(true);
+        
+        jCheckBoxMossPanel.setSelected(true);
+        setMossPanel(true);
+    }//GEN-LAST:event_jMenuItemResetActionPerformed
+
+    private void setPVPanel(boolean setting) {
+        jComboBoxPVPreset.setEnabled(setting);
+        jTextFieldPVArea.setEnabled(setting);
+        jTextFieldPVAngle.setEnabled(setting);
+        jTextFieldPVTemp.setEnabled(setting);
+    }
+    
+    private void setMossPanel(boolean setting) {
+        jTextFieldMossHumidity.setEnabled(setting);
+        jTextFieldMossMoisture.setEnabled(setting);
+    }
+    
     /**
      * @param args the command line arguments
      */
