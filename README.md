@@ -15,7 +15,7 @@ Our group proposed a **double façade** system that combines **photovoltaic (PV)
 ### 🧑‍💻 About This Application
 
 I designed and built this entire application from scratch to simulate and test various configurations of the proposed façade system.  
-From the initial UI design and architectural setup to backend logic, input validation, and feature integration, everything was implemented by me. The only input I received was some help choosing realistic parameter ranges.
+From the initial UI design and architectural setup to backend logic, input validation, and feature integration, everything was implemented by me, being helped by the team only with which parameters to use and which presets to consider.
 
 The result is a modular, interactive Java-based simulator that allows users to customize environmental conditions, toggle system components, and view estimated energy output over a 24-hour period.
 
@@ -43,4 +43,8 @@ The result is a modular, interactive Java-based simulator that allows users to c
 
 ---
 
+### 🛠 Technical Details
 
+- Language: Java (using JDK 23)
+- GUI: Swing
+- Architecture: Object-oriented, modular, input-driven
