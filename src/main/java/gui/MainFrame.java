@@ -4,6 +4,13 @@
  */
 package gui;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Alex
@@ -424,7 +431,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxPVPanelActionPerformed
 
     private void jTextFieldSunLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSunLevelActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextFieldSunLevelActionPerformed
 
     private void jTextFieldPVAngleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPVAngleActionPerformed
@@ -432,7 +439,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPVAngleActionPerformed
 
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
-        // TODO add your handling code here:
+        
+       this.displayInvalidTextFields();
+        
     }//GEN-LAST:event_jButtonRunActionPerformed
 
     private void jMenuItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemResetActionPerformed
@@ -443,6 +452,106 @@ public class MainFrame extends javax.swing.JFrame {
         setMossPanel(true);
     }//GEN-LAST:event_jMenuItemResetActionPerformed
 
+    /**
+     * Boolean method made to find if a field contains a valid numerical value
+     * according to the lower and higher limit.
+     * 
+     * @param field The text field.
+     * @param low The lower limit of what should be in the text field.
+     * @param high The higher limit of what should be in the text field.
+     * @return True if it is a valid field, false otherwise.
+     */
+    private boolean isValidTextField(JTextField field, double low, double high) {
+        
+        // If a text field is not enabled, then we wont use it at all, 
+        // so it is valid logically (empty domain).
+        if(!field.isEnabled()) {
+            return true;
+        }
+        
+        double value = 0.0;
+        try {
+            value = Double.parseDouble(field.getText());
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        
+        if(value < low || value > high) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Method which returns a HashSet of text fields which are not considered
+     * valid within their respective constraints.
+     * 
+     * @return A HashSet of text fields which contain invalid values.
+     */
+    private Set<JTextField> getInvalidTextFields() {
+        Set<JTextField> invalidFields = new HashSet<>();
+        
+        if(!isValidTextField(jTextFieldSunLevel, 0, 100)) {
+            invalidFields.add(jTextFieldSunLevel);
+        }
+        
+        if(!isValidTextField(jTextFieldCloudFactor, 0, 100)) {
+            invalidFields.add(jTextFieldCloudFactor);
+        }
+        
+        if(!isValidTextField(jTextFieldMossHumidity, 0, 100)) {
+            invalidFields.add(jTextFieldMossHumidity);
+        }
+        
+        if(!isValidTextField(jTextFieldMossMoisture, 0, 100)) {
+            invalidFields.add(jTextFieldMossMoisture);
+        }
+        
+        if(!isValidTextField(jTextFieldPVAngle, 0, 90)) {
+            invalidFields.add(jTextFieldPVAngle);
+        }
+        
+        if(!isValidTextField(jTextFieldPVArea, 0, Double.MAX_VALUE - 3)) {
+            invalidFields.add(jTextFieldPVArea);
+        }
+        
+        if(!isValidTextField(jTextFieldPVTemp, 0, 40)) {
+            invalidFields.add(jTextFieldPVTemp);
+        }
+        
+        return invalidFields;
+    }
+    
+    /**
+     * For every invalid value entered in a field, that same field will be
+     * disabled for 1 second stating "Invalid" and then enabled with the default
+     * value. 
+     * This is so that the user knows which value entered is invalid.
+     */
+    private void displayInvalidTextFields() {
+        Set<JTextField> invalidFields = this.getInvalidTextFields();
+        for(JTextField field : invalidFields) {
+            field.setEnabled(false);
+            field.setText("Invalid");
+            new javax.swing.Timer(1000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    field.setText("");
+                    field.setEnabled(true);
+                }
+            }) {{
+              setRepeats(false);
+              start();
+            }};
+        }
+    }
+    
+    /**
+     * Sets every component in the PV panel to setting.
+     * 
+     * @param setting Either true or false.
+     */
     private void setPVPanel(boolean setting) {
         jComboBoxPVPreset.setEnabled(setting);
         jTextFieldPVArea.setEnabled(setting);
@@ -450,14 +559,16 @@ public class MainFrame extends javax.swing.JFrame {
         jTextFieldPVTemp.setEnabled(setting);
     }
     
+    /**
+     * Sets every component in the Moss panel to 'setting'.
+     * 
+     * @param setting Either true or false.
+     */
     private void setMossPanel(boolean setting) {
         jTextFieldMossHumidity.setEnabled(setting);
         jTextFieldMossMoisture.setEnabled(setting);
     }
     
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
