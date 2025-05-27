@@ -377,6 +377,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuInformation.setText("Information");
 
         jMenuItemInfoPVWindows.setText("PV Windows");
+        jMenuItemInfoPVWindows.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemInfoPVWindowsActionPerformed(evt);
+            }
+        });
         jMenuInformation.add(jMenuItemInfoPVWindows);
 
         jMenuItemInfoMoss.setText("Moss");
@@ -422,6 +427,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxPVPresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPVPresetActionPerformed
+
     }//GEN-LAST:event_jComboBoxPVPresetActionPerformed
 
     private void jCheckBoxMossPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMossPanelActionPerformed
@@ -467,6 +473,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItemInfoPVWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInfoPVWindowsActionPerformed
+        
+    }//GEN-LAST:event_jMenuItemInfoPVWindowsActionPerformed
 
     /**
      * Boolean method made to find if a field contains a valid numerical value
