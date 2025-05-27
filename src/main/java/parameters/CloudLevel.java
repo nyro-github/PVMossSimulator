@@ -8,9 +8,9 @@ package parameters;
  *
  * @author Alex
  */
-public class SunLevel extends AbstractFactor {
+public class CloudLevel extends AbstractFactor {
     
-    public SunLevel() {
-        super(0.0, 100.0, 80);
+    public CloudLevel() {
+        super(0.0, 100.0, 20.0);
     }
 }

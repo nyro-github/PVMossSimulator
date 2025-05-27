@@ -1,22 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package parameters;
 
-/**
- * A class for a factor of the simulation.
- * 
- * @author Alex
- */
 public abstract class AbstractFactor {
-    public double minVal;
-    public double maxVal;
-    public double defaultVal;
+    private final double minVal;
+    private final double maxVal;
+    private final double defaultVal;
+    private double value;
+
+    public AbstractFactor(double minVal, double maxVal, double defaultVal) {
+        if (minVal > maxVal) {
+            throw new IllegalArgumentException("Invalid range: minVal (" + minVal + ") cannot be greater than maxVal (" + maxVal + ")");
+        }
+        if (defaultVal < minVal || defaultVal > maxVal) {
+            throw new IllegalArgumentException("Invalid default value: must satisfy minVal ≤ defaultVal ≤ maxVal");
+        }
+        this.minVal = minVal;
+        this.maxVal = maxVal;
+        this.defaultVal = defaultVal;
+        this.value = defaultVal;
+    }
+
+    public double getMinVal() {
+        return minVal;
+    }
+
+    public double getMaxVal() {
+        return maxVal;
+    }
+
+    public double getDefaultVal() {
+        return defaultVal;
+    }
     
-    public AbstractFactor() {
-        minVal = 0.0;
-        maxVal = 0.0;
-        defaultVal = 0.0;
+    public void setVal(double value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + 
+               " [min=" + minVal + ", max=" + maxVal + ", default=" + defaultVal + ", value =" + value + "]";
     }
 }
