@@ -26,50 +26,182 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelPV = new javax.swing.JPanel();
+        jLabelPVControlPanel = new javax.swing.JLabel();
+        jLabelPVPreset = new javax.swing.JLabel();
+        jLabelPVArea = new javax.swing.JLabel();
+        jLabelPVSunLevel = new javax.swing.JLabel();
+        jLabelPVAngle = new javax.swing.JLabel();
+        jLabelPVCloudFactor = new javax.swing.JLabel();
+        jLabelPVTemp = new javax.swing.JLabel();
+        jPanelMoss = new javax.swing.JPanel();
+        jLabelMossControlPanel = new javax.swing.JLabel();
+        jLabelMossLight = new javax.swing.JLabel();
+        jLabelMossMoist = new javax.swing.JLabel();
+        jLabelMossHumidity = new javax.swing.JLabel();
+        jPanelRunOutput = new javax.swing.JPanel();
+        jLabelRunOutput = new javax.swing.JLabel();
+        jLabelOutEnergySun = new javax.swing.JLabel();
+        jLabelOutEnergyPV = new javax.swing.JLabel();
+        jLabelOutEnergyMoss = new javax.swing.JLabel();
+        jLabelOutEnergyTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelPV.setBackground(new java.awt.Color(153, 153, 153));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
+        jLabelPVControlPanel.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabelPVControlPanel.setText("PV Window Control Panel");
+
+        jLabelPVPreset.setText("Preset:");
+
+        jLabelPVArea.setText("PV Window Area:");
+
+        jLabelPVSunLevel.setText("Sun Level:");
+
+        jLabelPVAngle.setText("Angle of sun:");
+
+        jLabelPVCloudFactor.setText("Cloud factor:");
+
+        jLabelPVTemp.setText("Temperature:");
+
+        javax.swing.GroupLayout jPanelPVLayout = new javax.swing.GroupLayout(jPanelPV);
+        jPanelPV.setLayout(jPanelPVLayout);
+        jPanelPVLayout.setHorizontalGroup(
+            jPanelPVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPVLayout.createSequentialGroup()
+                .addGroup(jPanelPVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabelPVControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVPreset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVArea))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVSunLevel))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVAngle))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVCloudFactor))
+                    .addGroup(jPanelPVLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPVTemp)))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+        jPanelPVLayout.setVerticalGroup(
+            jPanelPVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPVLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelPVControlPanel)
+                .addGap(28, 28, 28)
+                .addComponent(jLabelPVPreset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPVArea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPVSunLevel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPVAngle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPVCloudFactor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPVTemp)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelMoss.setBackground(new java.awt.Color(153, 153, 153));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+        jLabelMossControlPanel.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabelMossControlPanel.setText("Moss Control Panel");
+
+        jLabelMossLight.setText("Light:");
+
+        jLabelMossMoist.setText("Moisture:");
+
+        jLabelMossHumidity.setText("Humidity:");
+
+        javax.swing.GroupLayout jPanelMossLayout = new javax.swing.GroupLayout(jPanelMoss);
+        jPanelMoss.setLayout(jPanelMossLayout);
+        jPanelMossLayout.setHorizontalGroup(
+            jPanelMossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMossLayout.createSequentialGroup()
+                .addGroup(jPanelMossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMossLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabelMossControlPanel))
+                    .addGroup(jPanelMossLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanelMossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMossMoist, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMossLight, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMossHumidity, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanelMossLayout.setVerticalGroup(
+            jPanelMossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMossLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelMossControlPanel)
+                .addGap(30, 30, 30)
+                .addComponent(jLabelMossLight)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMossMoist)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMossHumidity)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelRunOutput.setBackground(new java.awt.Color(153, 153, 153));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jLabelRunOutput.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabelRunOutput.setText("Run & Output");
+
+        jLabelOutEnergySun.setText("Energy generated by the sun:");
+
+        jLabelOutEnergyPV.setText("Energy captured by PV Windows:");
+
+        jLabelOutEnergyMoss.setText("Energy captured by Moss:");
+
+        jLabelOutEnergyTotal.setText("Total energy captured:");
+
+        javax.swing.GroupLayout jPanelRunOutputLayout = new javax.swing.GroupLayout(jPanelRunOutput);
+        jPanelRunOutput.setLayout(jPanelRunOutputLayout);
+        jPanelRunOutputLayout.setHorizontalGroup(
+            jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRunOutputLayout.createSequentialGroup()
+                .addGroup(jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRunOutputLayout.createSequentialGroup()
+                        .addGap(355, 355, 355)
+                        .addComponent(jLabelRunOutput))
+                    .addGroup(jPanelRunOutputLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelOutEnergyPV)
+                            .addComponent(jLabelOutEnergySun)
+                            .addComponent(jLabelOutEnergyMoss)
+                            .addComponent(jLabelOutEnergyTotal))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        jPanelRunOutputLayout.setVerticalGroup(
+            jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRunOutputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelRunOutput)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelOutEnergySun)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelOutEnergyPV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelOutEnergyMoss)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelOutEnergyTotal)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,12 +211,12 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRunOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelPV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanelMoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 5, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,10 +224,10 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelPV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelMoss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelRunOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -138,8 +270,24 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabelMossControlPanel;
+    private javax.swing.JLabel jLabelMossHumidity;
+    private javax.swing.JLabel jLabelMossLight;
+    private javax.swing.JLabel jLabelMossMoist;
+    private javax.swing.JLabel jLabelOutEnergyMoss;
+    private javax.swing.JLabel jLabelOutEnergyPV;
+    private javax.swing.JLabel jLabelOutEnergySun;
+    private javax.swing.JLabel jLabelOutEnergyTotal;
+    private javax.swing.JLabel jLabelPVAngle;
+    private javax.swing.JLabel jLabelPVArea;
+    private javax.swing.JLabel jLabelPVCloudFactor;
+    private javax.swing.JLabel jLabelPVControlPanel;
+    private javax.swing.JLabel jLabelPVPreset;
+    private javax.swing.JLabel jLabelPVSunLevel;
+    private javax.swing.JLabel jLabelPVTemp;
+    private javax.swing.JLabel jLabelRunOutput;
+    private javax.swing.JPanel jPanelMoss;
+    private javax.swing.JPanel jPanelPV;
+    private javax.swing.JPanel jPanelRunOutput;
     // End of variables declaration//GEN-END:variables
 }
