@@ -91,5 +91,3 @@ The result is a modular, interactive Java-based simulator that allows users to c
 ### 🧱 Factor Design
 
 The simulation is backed by an abstract class model where each environmental or physical factor inherits from a common base class:
-
->>>>>>> 00b38afe8fbb5a124821b941d49d8d2a0ff31696
