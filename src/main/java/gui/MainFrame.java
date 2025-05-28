@@ -6,7 +6,7 @@ package gui;
 
 import parameters.SimulationParameters;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -27,7 +27,51 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    private static Map<Integer, PVPreset> createPresetValueMap() {
+        Map<Integer, PVPreset> map = new HashMap<>();
+        map.put(1, new PVPreset(32.0, 95.0, 10.0 , 15.0));
+        map.put(2, new PVPreset(3.0, 30.0, 80.0, 60.0));
+        map.put(3, new PVPreset(18.0, 75.0, 40.0, 30.0));
+        map.put(4, new PVPreset(0.0, 85.0, 20.0 , 70.0));
+        map.put(5, new PVPreset(31.0, 90.0, 30.0, 45.0));
+        map.put(6, new PVPreset(12.0, 20.0, 95.0, 40.0));
+        map.put(7, new PVPreset(14.0, 70.0, 10.0 , 25.0));
+        map.put(8, new PVPreset(5.0, 40.0, 70.0, 50.0));
+        map.put(9, new PVPreset(34.0, 95.0, 5.0, 10.0));
+        map.put(10, new PVPreset(10.0, 20.0, 90.0, 60.0));
+        return Map.copyOf(map); // make it unmodifiable
+    }
+
+    public static class PVPreset {
+        public final double pvtemp, sunLevel, cloudLevel, pvangle;
+
+        public PVPreset(double a, double b, double c, double d) {
+            this.pvtemp = a;
+            this.sunLevel = b;
+            this.cloudLevel = c;
+            this.pvangle = d;
+        }
+        
+        @Override
+        public String toString() {
+            return ("pvtemp = " + pvtemp + "; sunLevel = " 
+            + sunLevel + "; cloudLevel = " + cloudLevel + "pvangle = " + pvangle);
+        }
+    }
+    
+    /**
+     * This map corresponds to (preset_index :: PVTemp, SunLevel, CloudLevel, PVAngle)
+     */
+    public static final Map<Integer, PVPreset> PRESET_VALUES = createPresetValueMap();
+    
+    /**
+     * Singleton for the simulation parameters used.
+     */
     public static final SimulationParameters parameters = SimulationParameters.getInstance();
+    
+    /**
+     * The index of the default preset (1).
+     */
     private static final int DEFAULT_PRESET_INDEX = 1;
     
     /**
@@ -436,9 +480,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jComboBoxPVPresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPVPresetActionPerformed
 
+        // preset = 4 double values
+        // update only visual
+        int index = jComboBoxPVPreset.getSelectedIndex();
+        
+        if(index != 0) {
+            PVPreset presetValues = PRESET_VALUES.get(index);
+            System.out.println(presetValues.toString());
+            jTextFieldPVTemp.setText(Double.toString(presetValues.pvtemp));
+            jTextFieldSunLevel.setText(Double.toString(presetValues.sunLevel));
+            jTextFieldCloudLevel.setText(Double.toString(presetValues.cloudLevel));
+            jTextFieldPVAngle.setText(Double.toString(presetValues.pvangle));
+        }
+        
     }//GEN-LAST:event_jComboBoxPVPresetActionPerformed
 
     private void jCheckBoxMossPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMossPanelActionPerformed
@@ -464,17 +521,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTextFieldPVAngleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPVAngleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPVAngleActionPerformed
-
-    private void updateFactors() {
-        for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
-            // For every factor, set its value in its respective class to the value in its text field
-            entry.getValue().setVal(Double.parseDouble(entry.getKey().getText()));
-        }
-    }
     
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         
-       // Update the actual beck-end factors in their classes
+       // Update the actual back-end factors in their classes
        if(!this.displayInvalidTextFields()) {
            this.updateFactors();
        }
@@ -506,6 +556,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPVAreaActionPerformed
 
     /**
+     * Updates the factor classes according to user input.
+     */
+    private void updateFactors() {
+        for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
+            // For every factor, set its value in its respective class to the value in its text field
+            entry.getValue().setVal(Double.parseDouble(entry.getKey().getText()));
+        }
+    }
+    
+    /**
      * Boolean method made to find if a field contains a valid numerical value
      * according to the lower and higher limit.
      * 
@@ -522,7 +582,7 @@ public class MainFrame extends javax.swing.JFrame {
             return true;
         }
         
-        double value = 0.0;
+        double value;
         try {
             value = Double.parseDouble(field.getText());
         } catch (NumberFormatException e) {
@@ -582,12 +642,9 @@ public class MainFrame extends javax.swing.JFrame {
         for(JTextField field : invalidFields) {
             field.setEnabled(false);
             field.setText("Invalid");
-            new javax.swing.Timer(1000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    field.setText("");
-                    field.setEnabled(true);
-                }
+            new javax.swing.Timer(1000, (ActionEvent e) -> {
+                field.setText("");
+                field.setEnabled(true);
             }) {{
               setRepeats(false);
               start();
@@ -661,14 +718,11 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
         }
         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MainFrame().setVisible(true);
         });
     }
 
