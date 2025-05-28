@@ -437,11 +437,19 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPVPresetActionPerformed
 
     private void jCheckBoxMossPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMossPanelActionPerformed
-        setEnabledPVPanel(jCheckBoxPVPanel.isSelected());
+        if(!jCheckBoxMossPanel.isSelected()) {
+            setEnabledMossPanel(false);
+        } else {
+            setEnabledMossPanel(true);
+        }
     }//GEN-LAST:event_jCheckBoxMossPanelActionPerformed
 
     private void jCheckBoxPVPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPVPanelActionPerformed
-        setEnabledMossPanel(jCheckBoxMossPanel.isSelected());
+        if(!jCheckBoxPVPanel.isSelected()) {
+            setEnabledPVPanel(false);
+        } else {
+            setEnabledPVPanel(true);
+        }
     }//GEN-LAST:event_jCheckBoxPVPanelActionPerformed
 
     private void jTextFieldSunLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSunLevelActionPerformed
