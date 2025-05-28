@@ -2,7 +2,6 @@
 ### Group 10 — Photovoltaic-Moss Façade Simulator  
 
 ![Simulation UI](https://github.com/user-attachments/assets/ff16cfe4-a063-4d70-9644-96a2cecaed97)
-<<<<<<< HEAD
 
 ---
 
