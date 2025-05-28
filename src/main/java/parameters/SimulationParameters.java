@@ -1,40 +1,95 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package parameters;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
+ * Singleton class to manage all simulation parameters (factors).
+ * Allows direct access and modification of individual parameters.
+ * 
+ * Example usage:
+ *     SimulationParameters.getInstance().setSunLevel(0.8);
+ *     double area = SimulationParameters.getInstance().getPVArea().getVal();
+ * 
  * @author Alex
  */
 public class SimulationParameters {
+
+    // Static instance for singleton
+    private static SimulationParameters instance = null;
+
+    // Individual factors
+    private final SunLevel sunLevel;
+    private final CloudLevel cloudLevel;
+    private final PVArea pvarea;
+    private final PVAngle pvangle;
+    private final PVTemp pvtemp;
+    private final MossHumidity mossHumidity;
+    private final MossMoisture mossMoisture;
+
+    // List of all factors (for iteration or bulk operations)
     private final List<AbstractFactor> factors;
-    
-    public SimulationParameters() {
+
+    // Private constructor
+    private SimulationParameters() {
+        sunLevel = new SunLevel();
+        cloudLevel = new CloudLevel();
+        pvarea = new PVArea();
+        pvangle = new PVAngle();
+        pvtemp = new PVTemp();
+        mossHumidity = new MossHumidity();
+        mossMoisture = new MossMoisture();
+
         factors = new ArrayList<>();
-        factors.add(new SunLevel());
-        factors.add(new CloudLevel());
+        factors.add(sunLevel);
+        factors.add(cloudLevel);
+        factors.add(pvarea);
+        factors.add(pvangle);
+        factors.add(pvtemp);
+        factors.add(mossMoisture);
+        factors.add(mossHumidity);
     }
-    
+
+    // Singleton accessor
+    public static SimulationParameters getInstance() {
+        if (instance == null) {
+            instance = new SimulationParameters();
+        }
+        return instance;
+    }
+
+    // Direct getters
+    public SunLevel getSunLevel() { return sunLevel; }
+    public CloudLevel getCloudLevel() { return cloudLevel; }
+    public PVArea getPVArea() { return pvarea; }
+    public PVAngle getPVAngle() { return pvangle; }
+    public PVTemp getPVTemp() { return pvtemp; }
+    public MossMoisture getMossMoisture() { return mossMoisture; }
+    public MossHumidity getMossHumidity() { return mossHumidity; }
+
+    // Direct setters
+    public void setSunLevel(double val) { sunLevel.setVal(val); }
+    public void setCloudLevel(double val) { cloudLevel.setVal(val); }
+    public void setPVArea(double val) { pvarea.setVal(val); }
+    public void setPVAngle(double val) { pvangle.setVal(val); }
+    public void setPVTemp(double val) { pvtemp.setVal(val); }
+    public void setMossMoisture(double val) { mossMoisture.setVal(val); }
+    public void setMossHumidity(double val) { mossHumidity.setVal(val); }
+
+    // Bulk access
+    public List<AbstractFactor> getFactors() {
+        return factors;
+    }
+
     public void printAllFactors() {
         for (AbstractFactor factor : factors) {
             System.out.println(factor.toString());
         }
     }
-    
-    public void setFactors(List<Double> values) {
-        int k = 0;
-        for(AbstractFactor fct : factors) {
-            fct.setVal(values.get(k));
-            k++;
-        }
-    }
 
-    public List<AbstractFactor> getFactors() {
-        return factors;
+    public void setFactors(List<Double> values) {
+        for (int i = 0; i < values.size() && i < factors.size(); i++) {
+            factors.get(i).setVal(values.get(i));
+        }
     }
 }

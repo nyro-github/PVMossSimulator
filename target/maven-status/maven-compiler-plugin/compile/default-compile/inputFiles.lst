@@ -1,5 +1,10 @@
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\gui\MainFrame.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\AbstractFactor.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\CloudLevel.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\MossHumidity.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\MossMoisture.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\PVAngle.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\PVArea.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\PVTemp.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\SimulationParameters.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\SunLevel.java

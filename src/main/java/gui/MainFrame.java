@@ -4,12 +4,15 @@
  */
 package gui;
 
+import parameters.SimulationParameters;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import javax.swing.JTextField;
 import javax.swing.UnsupportedLookAndFeelException;
+import parameters.AbstractFactor;
 
 /**
  *
@@ -23,7 +26,10 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
     }
-
+    
+    public static final SimulationParameters parameters = SimulationParameters.getInstance();
+    private static final int DEFAULT_PRESET_INDEX = 1;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -431,19 +437,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPVPresetActionPerformed
 
     private void jCheckBoxMossPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMossPanelActionPerformed
-        if(!jCheckBoxMossPanel.isSelected()) {
-            this.setEnabledMossPanel(false);
-        } else {
-            this.setEnabledMossPanel(true);
-        }
+        setEnabledPVPanel(jCheckBoxPVPanel.isSelected());
     }//GEN-LAST:event_jCheckBoxMossPanelActionPerformed
 
     private void jCheckBoxPVPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPVPanelActionPerformed
-        if(!jCheckBoxPVPanel.isSelected()) {
-            this.setEnabledPVPanel(false);
-        } else {
-            this.setEnabledPVPanel(true);
-        }
+        setEnabledMossPanel(jCheckBoxMossPanel.isSelected());
     }//GEN-LAST:event_jCheckBoxPVPanelActionPerformed
 
     private void jTextFieldSunLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSunLevelActionPerformed
@@ -457,6 +455,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         
        this.displayInvalidTextFields();
+       
+       
         
     }//GEN-LAST:event_jButtonRunActionPerformed
 
@@ -487,7 +487,7 @@ public class MainFrame extends javax.swing.JFrame {
      * @param high The higher limit of what should be in the text field.
      * @return True if it is a valid field, false otherwise.
      */
-    private boolean isValidTextField(JTextField field, double low, double high) {
+    private boolean isValidTextField(JTextField field, AbstractFactor factor) {
         
         // If a text field is not enabled, then we wont use it at all, 
         // so it is valid logically (empty domain).
@@ -502,11 +502,25 @@ public class MainFrame extends javax.swing.JFrame {
             return false;
         }
         
-        if(value < low || value > high) {
-            return false;
-        }
-        
-        return true;
+        return factor.isValidValue(value);
+    }
+    
+    /**
+     * Returns a map of the type (field of some factor, that factor), is more
+     * of a helper method for getInvalidTextFields();
+     * 
+     * @return a map of the type (field of some factor, that factor).
+     */
+    private Map<JTextField, AbstractFactor> getFieldFactorMap() {
+        return Map.of(
+            jTextFieldSunLevel, parameters.getSunLevel(),
+            jTextFieldCloudLevel, parameters.getCloudLevel(),
+            jTextFieldPVAngle, parameters.getPVAngle(),
+            jTextFieldPVArea, parameters.getPVArea(),
+            jTextFieldPVTemp, parameters.getPVTemp(),
+            jTextFieldMossHumidity, parameters.getMossHumidity(),
+            jTextFieldMossMoisture, parameters.getMossMoisture()
+        );
     }
     
     /**
@@ -517,38 +531,17 @@ public class MainFrame extends javax.swing.JFrame {
      */
     private Set<JTextField> getInvalidTextFields() {
         Set<JTextField> invalidFields = new HashSet<>();
-        
-        if(!isValidTextField(jTextFieldSunLevel, 0, 100)) {
-            invalidFields.add(jTextFieldSunLevel);
+
+        for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
+            if (!isValidTextField(entry.getKey(), entry.getValue())) {
+                invalidFields.add(entry.getKey());
+            }
         }
-        
-        if(!isValidTextField(jTextFieldCloudLevel, 0, 100)) {
-            invalidFields.add(jTextFieldCloudLevel);
-        }
-        
-        if(!isValidTextField(jTextFieldMossHumidity, 0, 100)) {
-            invalidFields.add(jTextFieldMossHumidity);
-        }
-        
-        if(!isValidTextField(jTextFieldMossMoisture, 0, 100)) {
-            invalidFields.add(jTextFieldMossMoisture);
-        }
-        
-        if(!isValidTextField(jTextFieldPVAngle, 0, 90)) {
-            invalidFields.add(jTextFieldPVAngle);
-        }
-        
-        if(!isValidTextField(jTextFieldPVArea, 0, Double.MAX_VALUE - 3)) {
-            invalidFields.add(jTextFieldPVArea);
-        }
-        
-        if(!isValidTextField(jTextFieldPVTemp, 0, 40)) {
-            invalidFields.add(jTextFieldPVTemp);
-        }
-        
+
         return invalidFields;
     }
-    
+
+
     /**
      * For every invalid value entered in a field, that same field will be
      * disabled for 1 second stating "Invalid" and then enabled with the default
@@ -573,16 +566,17 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Visually and back-end resets the parameters to their default values.
+     */
     private void resetDefaultParameters() {
-        jTextFieldSunLevel.setText("75");
-        jTextFieldCloudLevel.setText("20");
-        jTextFieldMossHumidity.setText("50");
-        jTextFieldMossMoisture.setText("50");
-        jTextFieldPVAngle.setText("45");
-        jTextFieldPVArea.setText("100");
-        jTextFieldPVTemp.setText("20");
-        jComboBoxPVPreset.setSelectedIndex(1);
+        for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
+            entry.getKey().setText(entry.getValue().getDefaultValString());
+        }
+
+        jComboBoxPVPreset.setSelectedIndex(DEFAULT_PRESET_INDEX);
     }
+
     
     /**
      * Sets every component in the PV panel to setting.
@@ -636,7 +630,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -1,5 +1,10 @@
 package parameters;
 
+/**
+ * Abstract class for all factors to inherit.
+ * 
+ * @author Alex
+ */
 public abstract class AbstractFactor {
     private final double minVal;
     private final double maxVal;
@@ -31,8 +36,16 @@ public abstract class AbstractFactor {
         return defaultVal;
     }
     
+    public String getDefaultValString() {
+        return Double.toString(this.defaultVal);
+    }
+    
     public void setVal(double value) {
         this.value = value;
+    }
+    
+    public boolean isValidValue(double value) {
+        return (this.minVal < value && value < this.maxVal);
     }
 
     @Override
