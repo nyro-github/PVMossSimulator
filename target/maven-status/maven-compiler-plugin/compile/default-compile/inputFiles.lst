@@ -8,3 +8,6 @@ C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameter
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\PVTemp.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\SimulationParameters.java
 C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\parameters\SunLevel.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\simulation\AbstractCalculator.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\simulation\MossCalculator.java
+C:\Users\Alex\Documents\NetBeansProjects\PVMossSimulator\src\main\java\simulation\PVWindowCalculator.java

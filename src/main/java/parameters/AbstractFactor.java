@@ -51,6 +51,6 @@ public abstract class AbstractFactor {
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + 
-               " [min=" + minVal + ", max=" + maxVal + ", default=" + defaultVal + ", value =" + value + "]";
+               "value = " + value;
     }
 }

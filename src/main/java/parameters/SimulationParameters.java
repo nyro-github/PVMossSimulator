@@ -82,9 +82,11 @@ public class SimulationParameters {
     }
 
     public void printAllFactors() {
+        System.out.println("-----------");
         for (AbstractFactor factor : factors) {
             System.out.println(factor.toString());
         }
+        System.out.println("-----------");
     }
 
     public void setFactors(List<Double> values) {

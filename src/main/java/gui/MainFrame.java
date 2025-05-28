@@ -104,16 +104,21 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPVArea.setText("100");
+        jTextFieldPVArea.setText("100.0");
+        jTextFieldPVArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPVAreaActionPerformed(evt);
+            }
+        });
 
-        jTextFieldPVAngle.setText("45");
+        jTextFieldPVAngle.setText("45.0");
         jTextFieldPVAngle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPVAngleActionPerformed(evt);
             }
         });
 
-        jTextFieldPVTemp.setText("20");
+        jTextFieldPVTemp.setText("20.0");
 
         jCheckBoxPVPanel.setBackground(new java.awt.Color(255, 153, 51));
         jCheckBoxPVPanel.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
@@ -211,9 +216,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldMossMoisture.setText("50");
+        jTextFieldMossMoisture.setText("20.0");
 
-        jTextFieldMossHumidity.setText("50");
+        jTextFieldMossHumidity.setText("20.0");
 
         jLabelUnitMossMoisture.setText("% (0 - 100)");
 
@@ -272,11 +277,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabelCloudLevel.setText("Cloud factor:");
 
-        jTextFieldCloudLevel.setText("20");
+        jTextFieldCloudLevel.setText("20.0");
 
         jLabelSunLevel.setText("Sun Level:");
 
-        jTextFieldSunLevel.setText("75");
+        jTextFieldSunLevel.setText("80.0");
         jTextFieldSunLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSunLevelActionPerformed(evt);
@@ -460,9 +465,19 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPVAngleActionPerformed
 
+    private void updateFactors() {
+        for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
+            // For every factor, set its value in its respective class to the value in its text field
+            entry.getValue().setVal(Double.parseDouble(entry.getKey().getText()));
+        }
+    }
+    
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         
-       this.displayInvalidTextFields();
+       // Update the actual beck-end factors in their classes
+       if(!this.displayInvalidTextFields()) {
+           this.updateFactors();
+       }
        
        
         
@@ -485,6 +500,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMenuItemInfoPVWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInfoPVWindowsActionPerformed
         
     }//GEN-LAST:event_jMenuItemInfoPVWindowsActionPerformed
+
+    private void jTextFieldPVAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPVAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPVAreaActionPerformed
 
     /**
      * Boolean method made to find if a field contains a valid numerical value
@@ -555,8 +574,10 @@ public class MainFrame extends javax.swing.JFrame {
      * disabled for 1 second stating "Invalid" and then enabled with the default
      * value. 
      * This is so that the user knows which value entered is invalid.
+     * 
+     * @return True if there are invalid fields, false otherwise
      */
-    private void displayInvalidTextFields() {
+    private boolean displayInvalidTextFields() {
         Set<JTextField> invalidFields = this.getInvalidTextFields();
         for(JTextField field : invalidFields) {
             field.setEnabled(false);
@@ -572,6 +593,10 @@ public class MainFrame extends javax.swing.JFrame {
               start();
             }};
         }
+        if(!invalidFields.isEmpty()) {
+            return true;
+        }
+        return false;
     }
     
     /**
