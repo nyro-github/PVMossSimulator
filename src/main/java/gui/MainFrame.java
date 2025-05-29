@@ -118,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButtonRun = new javax.swing.JButton();
         jLabelUnitCloudLevel = new javax.swing.JLabel();
         jLabelUnitSunLevel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuInformation = new javax.swing.JMenu();
         jMenuItemInfoPVWindows = new javax.swing.JMenuItem();
@@ -149,18 +149,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jTextFieldPVArea.setText("100.0");
-        jTextFieldPVArea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPVAreaActionPerformed(evt);
-            }
-        });
 
         jTextFieldPVAngle.setText("45.0");
-        jTextFieldPVAngle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPVAngleActionPerformed(evt);
-            }
-        });
 
         jTextFieldPVTemp.setText("20.0");
 
@@ -326,11 +316,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabelSunLevel.setText("Sun Level:");
 
         jTextFieldSunLevel.setText("80.0");
-        jTextFieldSunLevel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSunLevelActionPerformed(evt);
-            }
-        });
 
         jLabelOutEnergyPV.setText("Energy captured by PV Windows:");
 
@@ -352,11 +337,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabelUnitSunLevel.setText("% (0 - 100)");
 
-        jButton1.setText("Exit");
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExit.setText("Exit");
+        jButtonExit.setFocusPainted(false);
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonExitActionPerformed(evt);
             }
         });
 
@@ -391,7 +376,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(19, 19, 19))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRunOutputLayout.createSequentialGroup()
                                 .addGroup(jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonRun, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                                 .addContainerGap())))
                     .addGroup(jPanelRunOutputLayout.createSequentialGroup()
@@ -418,7 +403,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelOutEnergyTotal)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                    .addComponent(jButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelRunOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelRunOutputLayout.createSequentialGroup()
@@ -432,11 +417,6 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuInformation.setText("Information");
 
         jMenuItemInfoPVWindows.setText("PV Windows");
-        jMenuItemInfoPVWindows.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemInfoPVWindowsActionPerformed(evt);
-            }
-        });
         jMenuInformation.add(jMenuItemInfoPVWindows);
 
         jMenuItemInfoMoss.setText("Moss");
@@ -483,13 +463,10 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void jComboBoxPVPresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPVPresetActionPerformed
 
-        // preset = 4 double values
-        // update only visual
         int index = jComboBoxPVPreset.getSelectedIndex();
         
         if(index != 0) {
             PVPreset presetValues = PRESET_VALUES.get(index);
-            System.out.println(presetValues.toString());
             jTextFieldPVTemp.setText(Double.toString(presetValues.pvtemp));
             jTextFieldSunLevel.setText(Double.toString(presetValues.sunLevel));
             jTextFieldCloudLevel.setText(Double.toString(presetValues.cloudLevel));
@@ -513,14 +490,6 @@ public class MainFrame extends javax.swing.JFrame {
             setEnabledPVPanel(true);
         }
     }//GEN-LAST:event_jCheckBoxPVPanelActionPerformed
-
-    private void jTextFieldSunLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSunLevelActionPerformed
-        
-    }//GEN-LAST:event_jTextFieldSunLevelActionPerformed
-
-    private void jTextFieldPVAngleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPVAngleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPVAngleActionPerformed
     
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         
@@ -529,7 +498,9 @@ public class MainFrame extends javax.swing.JFrame {
            this.updateFactors();
        }
        
+       // Perform computation
        
+       // Output results
         
     }//GEN-LAST:event_jButtonRunActionPerformed
 
@@ -543,17 +514,9 @@ public class MainFrame extends javax.swing.JFrame {
         resetDefaultParameters();
     }//GEN-LAST:event_jMenuItemResetActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenuItemInfoPVWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInfoPVWindowsActionPerformed
-        
-    }//GEN-LAST:event_jMenuItemInfoPVWindowsActionPerformed
-
-    private void jTextFieldPVAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPVAreaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPVAreaActionPerformed
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
     /**
      * Updates the factor classes according to user input.
@@ -628,7 +591,6 @@ public class MainFrame extends javax.swing.JFrame {
         return invalidFields;
     }
 
-
     /**
      * For every invalid value entered in a field, that same field will be
      * disabled for 1 second stating "Invalid" and then enabled with the default
@@ -666,7 +628,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         jComboBoxPVPreset.setSelectedIndex(DEFAULT_PRESET_INDEX);
     }
-
     
     /**
      * Sets every component in the PV panel to setting.
@@ -727,7 +688,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonRun;
     private javax.swing.JCheckBox jCheckBoxMossPanel;
     private javax.swing.JCheckBox jCheckBoxPVPanel;
