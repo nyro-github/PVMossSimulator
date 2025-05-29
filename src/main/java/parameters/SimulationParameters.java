@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class SimulationParameters {
 
+    private boolean isEnabledPV;
+    
+    private boolean isEnabledMoss;
+    
     // Static instance for singleton
     private static SimulationParameters instance = null;
 
@@ -48,6 +52,9 @@ public class SimulationParameters {
         factors.add(pvtemp);
         factors.add(mossMoisture);
         factors.add(mossHumidity);
+        
+        isEnabledPV = true;
+        isEnabledMoss = true;
     }
 
     // Singleton accessor
@@ -79,6 +86,22 @@ public class SimulationParameters {
     // Bulk access
     public List<AbstractFactor> getFactors() {
         return factors;
+    }
+    
+    public void setEnabledPV(boolean setting) {
+        isEnabledPV = setting;
+    }
+    
+    public void setEnabledMoss(boolean setting) {
+        isEnabledMoss = setting;
+    }
+    
+    public boolean isEnabledPV() {
+        return isEnabledPV;
+    }
+    
+    public boolean isEnabledMoss() {
+        return isEnabledMoss;
     }
 
     public void printAllFactors() {

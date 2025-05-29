@@ -44,8 +44,12 @@ public abstract class AbstractFactor {
         this.value = value;
     }
     
+    public double getVal() {
+        return this.value;
+    }
+    
     public boolean isValidValue(double value) {
-        return (this.minVal < value && value < this.maxVal);
+        return (this.minVal <= value && value <= this.maxVal);
     }
 
     @Override
