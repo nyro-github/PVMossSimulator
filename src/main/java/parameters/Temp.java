@@ -5,9 +5,9 @@ package parameters;
  * 
  * @author Alex
  */
-public class PVTemp extends AbstractFactor {
+public class Temp extends AbstractFactor {
   
-    public PVTemp() {
+    public Temp() {
         super(0, 40, 20);
     }
 }

@@ -25,9 +25,9 @@ public class SimulationParameters {
     // Individual factors
     private final SunLevel sunLevel;
     private final CloudLevel cloudLevel;
-    private final PVArea pvarea;
+    private final FacadeArea area;
     private final PVAngle pvangle;
-    private final PVTemp pvtemp;
+    private final Temp temp;
     private final MossHumidity mossHumidity;
     private final MossMoisture mossMoisture;
 
@@ -38,18 +38,18 @@ public class SimulationParameters {
     private SimulationParameters() {
         sunLevel = new SunLevel();
         cloudLevel = new CloudLevel();
-        pvarea = new PVArea();
+        area = new FacadeArea();
         pvangle = new PVAngle();
-        pvtemp = new PVTemp();
+        temp = new Temp();
         mossHumidity = new MossHumidity();
         mossMoisture = new MossMoisture();
 
         factors = new ArrayList<>();
         factors.add(sunLevel);
         factors.add(cloudLevel);
-        factors.add(pvarea);
+        factors.add(area);
         factors.add(pvangle);
-        factors.add(pvtemp);
+        factors.add(temp);
         factors.add(mossMoisture);
         factors.add(mossHumidity);
         
@@ -68,18 +68,18 @@ public class SimulationParameters {
     // Direct getters
     public SunLevel getSunLevel() { return sunLevel; }
     public CloudLevel getCloudLevel() { return cloudLevel; }
-    public PVArea getPVArea() { return pvarea; }
+    public FacadeArea getArea() { return area; }
     public PVAngle getPVAngle() { return pvangle; }
-    public PVTemp getPVTemp() { return pvtemp; }
+    public Temp getTemp() { return temp; }
     public MossMoisture getMossMoisture() { return mossMoisture; }
     public MossHumidity getMossHumidity() { return mossHumidity; }
 
     // Direct setters
     public void setSunLevel(double val) { sunLevel.setVal(val); }
     public void setCloudLevel(double val) { cloudLevel.setVal(val); }
-    public void setPVArea(double val) { pvarea.setVal(val); }
+    public void setArea(double val) { area.setVal(val); }
     public void setPVAngle(double val) { pvangle.setVal(val); }
-    public void setPVTemp(double val) { pvtemp.setVal(val); }
+    public void setTemp(double val) { temp.setVal(val); }
     public void setMossMoisture(double val) { mossMoisture.setVal(val); }
     public void setMossHumidity(double val) { mossHumidity.setVal(val); }
 

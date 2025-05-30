@@ -24,10 +24,10 @@ public class EnergyCalculator {
         }
         
         double irradiance = calculateSunEnergy(); // Wh/m²
-        double temp = p.getPVTemp().getVal();
+        double temp = p.getTemp().getVal();
         double angle = p.getPVAngle().getVal();
         double cloud = p.getCloudLevel().getVal() / 100;
-        double area = p.getPVArea().getVal();
+        double area = p.getArea().getVal();
 
         double tempFactor = Math.max(0.8, 1 - 0.004 * (temp - 25));
         double angleFactor = Math.cos(Math.toRadians(angle));
@@ -45,7 +45,7 @@ public class EnergyCalculator {
         }
         
         double irradiance = calculateSunEnergy(); // Wh/m²
-        double area = p.getPVArea().getVal(); // Assuming same facade area
+        double area = p.getArea().getVal(); // Assuming same facade area
         double moisture = p.getMossMoisture().getVal() / 100;
         double humidity = p.getMossHumidity().getVal() / 100;
 
@@ -58,4 +58,28 @@ public class EnergyCalculator {
     public static double calculateTotalEnergy() {
         return calculatePVEnergy() + calculateMossEnergy();
     }
+    
+    // Status of the moss based on humidity and moisture
+    public static String getMossStatus() {
+        SimulationParameters p = SimulationParameters.getInstance();
+
+        if (!p.isEnabledMoss()) {
+            return "Disabled";
+        }
+
+        double moisture = p.getMossMoisture().getVal();
+        double humidity = p.getMossHumidity().getVal();
+
+       
+        if (moisture >= 70 && humidity >= 70) {
+            return "Thriving";
+        } else if (moisture >= 40 && humidity >= 40) {
+            return "Stable";
+        } else if (moisture >= 20 || humidity >= 20) {
+            return "Stressed";
+        } else {
+            return "Dormant";
+        }
+    }
+
 }

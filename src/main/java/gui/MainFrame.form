@@ -64,23 +64,31 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jPanelPV" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanelUniversalSettings" max="32767" attributes="0"/>
+                  <Component id="jPanelPV" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelMoss" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanelOutput" max="32767" attributes="0"/>
+                  <Component id="jPanelMoss" max="32767" attributes="0"/>
+              </Group>
           </Group>
-          <Component id="jPanelRunOutput" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelPV" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanelMoss" max="32767" attributes="0"/>
+                  <Component id="jPanelPV" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelRunOutput" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanelUniversalSettings" max="32767" attributes="0"/>
+                  <Component id="jPanelOutput" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,40 +109,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jCheckBoxPVPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabelPVTemp" max="32767" attributes="0"/>
-                              <Component id="jLabelPVAngle" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelPVArea" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelPVPreset" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldPVAngle" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelUnitPVAngle" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jComboBoxPVPreset" min="-2" pref="270" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jTextFieldPVArea" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelUnitPVArea" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jTextFieldPVTemp" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelUnitPVTemp" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabelPVAngle" min="-2" pref="91" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldPVAngle" min="-2" pref="140" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabelUnitPVAngle" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -143,94 +128,26 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jCheckBoxPVPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelPVPreset" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxPVPreset" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelPVArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPVArea" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jLabelUnitPVArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPVAngle" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldPVAngle" alignment="3" max="32767" attributes="0"/>
                       <Component id="jLabelUnitPVAngle" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldPVTemp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelPVTemp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelUnitPVTemp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabelPVPreset">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Preset:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelPVArea">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="PV Window Area:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelPVAngle">
           <Properties>
             <Property name="text" type="java.lang.String" value="Angle of sun:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelPVTemp">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Temperature:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxPVPreset">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="11">
-                <StringItem index="0" value="0. Custom"/>
-                <StringItem index="1" value="1. Sunny Summer Noon"/>
-                <StringItem index="2" value="2. Winter Morning"/>
-                <StringItem index="3" value="3. Partially Cloudy Autumn Afternoon"/>
-                <StringItem index="4" value="4. Cold Sunny Day with Low Sun Angle"/>
-                <StringItem index="5" value="5. Hot Day, High Angle, Some Clouds"/>
-                <StringItem index="6" value="6. Stormy Day with Low Light"/>
-                <StringItem index="7" value="7. Spring Morning with Clear Skies"/>
-                <StringItem index="8" value="8. Cloudy Late Afternoon in Early Winter"/>
-                <StringItem index="9" value="9. Heatwave Noon with Clear Skies"/>
-                <StringItem index="10" value="10. Early Autumn Foggy Morning"/>
-              </StringArray>
-            </Property>
-            <Property name="selectedIndex" type="int" value="1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxPVPresetActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPVArea">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="100.0"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPVAngle">
           <Properties>
             <Property name="text" type="java.lang.String" value="45.0"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPVTemp">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="20.0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxPVPanel">
@@ -249,19 +166,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxPVPanelActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelUnitPVArea">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="m&#xb2;"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelUnitPVAngle">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xb0; (0 - 90)"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelUnitPVTemp">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#xb0;C (0 - 40)"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -269,7 +176,7 @@
     <Container class="javax.swing.JPanel" name="jPanelMoss">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="99" red="0" type="rgb"/>
+          <Color blue="0" green="66" red="33" type="rgb"/>
         </Property>
       </Properties>
 
@@ -303,7 +210,7 @@
                           <Component id="jCheckBoxMossPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="57" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -324,7 +231,7 @@
                       <Component id="jLabelMossHumidity" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelUnitMossHumidity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -343,7 +250,7 @@
         <Component class="javax.swing.JCheckBox" name="jCheckBoxMossPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="33" type="rgb"/>
+              <Color blue="0" green="66" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Impact" size="12" style="0"/>
@@ -378,10 +285,10 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelRunOutput">
+    <Container class="javax.swing.JPanel" name="jPanelUniversalSettings">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="66" type="rgb"/>
+          <Color blue="ff" green="66" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -391,47 +298,40 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelOutEnergySun" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelOutEnergyPV" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelOutMossStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelOutEnergyMoss" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelOutEnergyTotal" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="373" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelCloudLevel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelSunLevel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldSunLevel" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldCloudLevel" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabelUnitCloudLevel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelUnitSunLevel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jButtonExit" max="32767" attributes="0"/>
-                                      <Component id="jButtonRun" alignment="0" pref="200" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                      <Component id="jLabelArea" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jLabelRunOutput" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelRunOutput" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelCloudLevel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSunLevel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPresets" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelTemp" pref="91" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jComboBoxPresets" min="-2" pref="270" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTextFieldSunLevel" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabelUnitCloudLevel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jTextFieldTemp" min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldCloudLevel" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldArea" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelUnitSunLevel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelUnitTemp" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="jLabelUnitArea" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -440,33 +340,36 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelRunOutput" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelCloudLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCloudLevel" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jLabelOutEnergySun" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelUnitCloudLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPresets" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxPresets" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelUnitCloudLevel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSunLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldSunLevel" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelSunLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldSunLevel" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jLabelOutEnergyPV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelUnitSunLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelUnitSunLevel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCloudLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCloudLevel" alignment="3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelTemp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldTemp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelUnitTemp" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelOutMossStatus" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonExit" pref="35" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabelOutEnergyMoss" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabelOutEnergyTotal" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelArea" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldArea" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jLabelUnitArea" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButtonRun" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -479,14 +382,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Impact" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Output &amp; Universal Settings"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelOutEnergySun">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="LABEL_OUT_ENERGY_SUN_TEXT" type="code"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Universal Settings"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCloudLevel">
@@ -507,6 +403,154 @@
         <Component class="javax.swing.JTextField" name="jTextFieldSunLevel">
           <Properties>
             <Property name="text" type="java.lang.String" value="80.0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUnitCloudLevel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="% (0 - 100)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUnitSunLevel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="% (0 - 100)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelTemp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Temperature:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldTemp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="20.0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUnitTemp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xb0;C (0 - 40)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelArea">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Facade Area:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldArea">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="100.0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUnitArea">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="m&#xb2;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPresets">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Preset:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxPresets">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="11">
+                <StringItem index="0" value="0. Custom"/>
+                <StringItem index="1" value="1. Sunny Summer Noon"/>
+                <StringItem index="2" value="2. Winter Morning"/>
+                <StringItem index="3" value="3. Partially Cloudy Autumn Afternoon"/>
+                <StringItem index="4" value="4. Cold Sunny Day"/>
+                <StringItem index="5" value="5. Hot Day, Some Clouds"/>
+                <StringItem index="6" value="6. Stormy Day with Low Light"/>
+                <StringItem index="7" value="7. Spring Morning with Clear Skies"/>
+                <StringItem index="8" value="8. Cloudy Late Afternoon in Early Winter"/>
+                <StringItem index="9" value="9. Heatwave Noon with Clear Skies"/>
+                <StringItem index="10" value="10. Early Autumn Foggy Morning"/>
+              </StringArray>
+            </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxPresetsActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanelOutput">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButtonRun" min="-2" pref="180" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelOutEnergyMoss" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOutEnergyTotal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOutEnergyPV" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelRunOutput1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOutEnergySun" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOutMossStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelRunOutput1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabelOutEnergySun" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelOutEnergyPV" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelOutMossStatus" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelOutEnergyMoss" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelOutEnergyTotal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonExit" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="jButtonRun" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabelRunOutput1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Impact" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Output"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelOutEnergySun">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="LABEL_OUT_ENERGY_SUN_TEXT" type="code"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelOutEnergyPV">
@@ -537,25 +581,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonRun">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Run simulation for 24h"/>
-            <Property name="focusPainted" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelUnitCloudLevel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="% (0 - 100)"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelUnitSunLevel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="% (0 - 100)"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jButtonExit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Exit"/>
@@ -563,6 +588,15 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExitActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonRun">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Run simulation for 24h"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

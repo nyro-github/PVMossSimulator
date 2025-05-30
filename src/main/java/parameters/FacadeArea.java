@@ -5,9 +5,9 @@ package parameters;
  * 
  * @author Alex
  */
-public class PVArea extends AbstractFactor {
+public class FacadeArea extends AbstractFactor {
     
-    public PVArea() {
+    public FacadeArea() {
         super(0, Double.MAX_VALUE-1, 100);
     }
 }
