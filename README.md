@@ -1,6 +1,6 @@
 # PV Window & Moss Energy Output Simulator
 
-[insert photo]
+![image](https://github.com/user-attachments/assets/1b7f2f6b-95d7-491d-a01f-3abf2d17d231)
 
 ## 🌱 Project Overview
 
@@ -58,28 +58,22 @@ This creates a balanced, realistic simulation suited for early-stage design anal
 <details>
 <summary>☀️ Spring Morning with Clear Skies</summary>
 
-[insert photo]
+![image](https://github.com/user-attachments/assets/16087e8f-6284-431b-9c92-645bf6249795)
 
 </details>
 
 <details>
 <summary>🌥️ Cloudy Winter Morning</summary>
 
-[insert photo]
+![image](https://github.com/user-attachments/assets/92d86d08-9481-4a30-a45e-c9a6c9adeb5b)
+
 
 </details>
 
 <details>
 <summary>💧 High Humidity, Low Sunlight Scenario</summary>
 
-[insert photo]
-
-</details>
-
-<details>
-<summary>📉 Dry Moss + Low Temperature Stress</summary>
-
-[insert photo]
+![image](https://github.com/user-attachments/assets/23fc67e4-9875-4506-b8a4-51b0ce3a46af)
 
 </details>
 
