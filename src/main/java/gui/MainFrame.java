@@ -20,7 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
     private static final String LABEL_OUT_MOSS_STATUS_TEXT = "Status of Moss:";   
     
     private static final String UNIT_ENERGY_PER_M2 = "kWh / m^2";
-    private static final String UNIT_ENERGY = "kWh";
+    //private static final String UNIT_ENERGY = "kWh";
     private static final String UNIT_ENERGY_SMALL = "Wh";
 
     /**
@@ -543,7 +543,7 @@ public class MainFrame extends javax.swing.JFrame {
            jLabelOutEnergyMoss.setText(LABEL_OUT_ENERGY_MOSS_TEXT + " "
                    + EnergyCalculator.calculateMossEnergy() + " " + UNIT_ENERGY_SMALL);
            jLabelOutEnergyTotal.setText(LABEL_OUT_ENERGY_TOTAL_TEXT + " "
-                   + EnergyCalculator.calculateTotalEnergy() + " " + UNIT_ENERGY);
+                   + EnergyCalculator.calculateTotalEnergy() + " " + UNIT_ENERGY_SMALL);
            jLabelOutMossStatus.setText(LABEL_OUT_MOSS_STATUS_TEXT + " " 
                    + EnergyCalculator.getMossStatus());
        } else {
