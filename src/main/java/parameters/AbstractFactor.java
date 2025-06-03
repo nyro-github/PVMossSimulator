@@ -44,6 +44,15 @@ public abstract class AbstractFactor {
         this.value = value;
     }
     
+    public void setVal(String value) {
+        try {
+            double numericValue = Double.parseDouble(value);
+            this.value = numericValue;
+        } catch (NumberFormatException e) {
+            this.value = 0.0;
+        }
+    }
+    
     public double getVal() {
         return this.value;
     }

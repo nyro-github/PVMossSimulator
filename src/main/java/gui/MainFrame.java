@@ -21,6 +21,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     private static final String UNIT_ENERGY_PER_M2 = "kWh / m^2";
     private static final String UNIT_ENERGY = "kWh";
+    private static final String UNIT_ENERGY_SMALL = "Wh";
 
     /**
      * Creates new form MainFrame
@@ -538,9 +539,9 @@ public class MainFrame extends javax.swing.JFrame {
            jLabelOutEnergySun.setText(LABEL_OUT_ENERGY_SUN_TEXT + " " 
                    + EnergyCalculator.calculateSunEnergy() + " " + UNIT_ENERGY_PER_M2);
            jLabelOutEnergyPV.setText(LABEL_OUT_ENERGY_PV_TEXT + " "
-                   + EnergyCalculator.calculatePVEnergy() + " " + UNIT_ENERGY);
+                   + EnergyCalculator.calculatePVEnergy() + " " + UNIT_ENERGY_SMALL);
            jLabelOutEnergyMoss.setText(LABEL_OUT_ENERGY_MOSS_TEXT + " "
-                   + EnergyCalculator.calculateMossEnergy() + " " + UNIT_ENERGY);
+                   + EnergyCalculator.calculateMossEnergy() + " " + UNIT_ENERGY_SMALL);
            jLabelOutEnergyTotal.setText(LABEL_OUT_ENERGY_TOTAL_TEXT + " "
                    + EnergyCalculator.calculateTotalEnergy() + " " + UNIT_ENERGY);
            jLabelOutMossStatus.setText(LABEL_OUT_MOSS_STATUS_TEXT + " " 
@@ -613,7 +614,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void updateFactors() {
         for (Map.Entry<JTextField, AbstractFactor> entry : getFieldFactorMap().entrySet()) {
             // For every factor, set its value in its respective class to the value in its text field
-            entry.getValue().setVal(Double.parseDouble(entry.getKey().getText()));
+            entry.getValue().setVal(entry.getKey().getText());
         }
     }
     
@@ -673,11 +674,13 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean displayInvalidTextFields() {
         Set<JTextField> invalidFields = this.getInvalidTextFields();
         for(JTextField field : invalidFields) {
+            jButtonRun.setEnabled(false);
             field.setEnabled(false);
             field.setText("Invalid");
             new javax.swing.Timer(1000, (ActionEvent e) -> {
                 field.setText("");
                 field.setEnabled(true);
+                jButtonRun.setEnabled(true);
             }) {{
               setRepeats(false);
               start();

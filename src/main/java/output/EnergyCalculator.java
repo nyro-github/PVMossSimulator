@@ -4,15 +4,16 @@ import parameters.SimulationParameters;
 
 public class EnergyCalculator {
     
-    private final static double PV_EFFICIENCY = 0.1;         // 10% conversion for PV glass
-    private final static double MAX_SUN = 1000.0;            // W/m² peak irradiance
-    private final static double DAYLIGHT_HOURS = 12.0;       // Assumed 6 AM – 6 PM
+    private final static double PV_EFFICIENCY = 0.1;        
+    private final static double MAX_SUN = 1000.0;            
+    private final static double DAYLIGHT_HOURS = 12.0;       
+    private final static double BIO_CONVERSION_FACTOR = 0.02;
 
     // Sine-averaged daily solar energy (kWh/m²)
     public static double calculateSunEnergy() {
         double sunLevel = SimulationParameters.getInstance().getSunLevel().getVal() / 100;
         double avgIrradiance = (2.0 / Math.PI) * MAX_SUN;
-        return avgIrradiance * DAYLIGHT_HOURS * sunLevel / 1000;
+        return Math.round((avgIrradiance * DAYLIGHT_HOURS * sunLevel / 1000) * 10000.0) / 10000.0;
     }
 
     // Energy produced by PV windows in kWh
@@ -32,8 +33,9 @@ public class EnergyCalculator {
         double tempFactor = Math.max(0.8, 1 - 0.004 * (temp - 25));
         double angleFactor = Math.cos(Math.toRadians(angle));
         double cloudFactor = 1 - cloud;
-
-        return PV_EFFICIENCY * irradiance * area * tempFactor * angleFactor * cloudFactor / 1000.0; // kWh
+        double finalAnswer = PV_EFFICIENCY * irradiance * area * tempFactor * angleFactor * cloudFactor;
+        
+        return Math.round(finalAnswer * 10000.0) / 10000.0; // Wh
     }
 
     // Energy "produced" or absorbed by moss layer in kWh
@@ -48,10 +50,9 @@ public class EnergyCalculator {
         double area = p.getArea().getVal(); // Assuming same facade area
         double moisture = p.getMossMoisture().getVal() / 100;
         double humidity = p.getMossHumidity().getVal() / 100;
+        double finalAnswer = BIO_CONVERSION_FACTOR * irradiance * area * moisture * humidity;
 
-        double mossEfficiency = 0.02; // Arbitrary bio-conversion factor
-
-        return mossEfficiency * irradiance * area * moisture * humidity / 1000.0; // kWh
+        return Math.round(finalAnswer * 10000.0) / 10000.0;
     }
 
     // Combined energy output in kWh
